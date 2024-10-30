@@ -13,28 +13,58 @@ function deleteLast() {
     display.value = display.value.slice(0, -1);
 }
 
-function squareRoot() {
-    let display = document.getElementById("output");
-    display.value += "√";
-    let currentValue = parseFloat(display.value);  // Convert the display value to a number
-
-    // Check if the current value is a valid number
-    if (!isNaN(currentValue)) {
-        display.value = Math.sqrt(currentValue);   // Calculate and display the square root
-    } else {
-        display.value = "Error";  // Show an error if the input is invalid
-    }
-}
-
 function calculate() {
     let display = document.getElementById("output");
     let expression = display.value;
-    let result;
-
+    
     try {
-        result = math.evaluate(expression);
+        let result = math.evaluate(expression);  
         display.value = result;
     } catch (error) {
         display.value = "Error";
     }
+}
+
+function squareRoot() {
+    let display = document.getElementById("output");
+
+    if (!isNaN(display.value) && display.value >= 0) {
+        display.value = `sqrt(${display.value})`; 
+    } else {
+        display.value = "Error";
+    }
+}
+
+function power() {
+    let display = document.getElementById("output");
+
+    if (!isNaN(display.value)) {
+        display.value += "^2";  
+    } else {
+        display.value = "Error";
+    }
+}
+
+function calculateLog() {
+    let display = document.getElementById("output");
+
+    if (!isNaN(display.value)) {
+        display.value = `log10(${display.value})`;  
+    } else {
+        display.value = "Error"; 
+    }
+}
+
+function calculateFactorial() {
+    const display = document.getElementById("output");
+    display.value += "!"; 
+}
+
+function factorial(n) {
+    if (n < 0 || !Number.isInteger(n)) return NaN;
+    let fact = 1;
+    for (let i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
 }

@@ -43,6 +43,7 @@ table {
     border-spacing: 10px;
     margin-left: auto; 
     margin-right: auto; 
+    table-layout: fixed;
 } 
 
 input[type="button"] { 
@@ -73,9 +74,6 @@ input[type="button"]:hover {
   }
   
 @media (max-width: 768px) {
-    body {
-        background-color: lightgreen;
-      }
       .calculator {
         padding: 20px;
         width: fit-content; 
@@ -95,7 +93,6 @@ input[type="button"]:hover {
   @media (max-width: 480px) {
     body {
         padding: 10px;
-        background-color: rgb(17, 30, 214);
     }
 
     .calculator {
@@ -118,8 +115,6 @@ input[type="button"]:hover {
     }
   }
   
-  @media (orientation: landscape) {
 
-  }
   
   
